@@ -45,6 +45,13 @@ h_line2.addWidget(button4)
 
 window.setLayout(line)
 
+# Реакции на события
+def test():
+    print('кто то нажал на кнопку')
+
+# Подписки на события
+button1.clicked.connect(test)
+
 # Запуск приложения
 window.show()
 app.exec()
