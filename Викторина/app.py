@@ -9,7 +9,7 @@ os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = os.path.join(pyqt_path, "Qt5", "plug
 
 # КОД ПРИЛОЖЕНИЯ
 from PyQt5.QtWidgets import (
-    QApplication, QWidget, QLabel, QVBoxLayout, QPushButton
+    QApplication, QWidget, QLabel, QVBoxLayout, QPushButton, QHBoxLayout
 )
 
 # Создание обьектов интерфейса
@@ -31,12 +31,17 @@ button4.setStyleSheet('font-size:30px ; color:blue')
 
 # Размещение обьектов интерфейса
 line = QVBoxLayout()
+h_line1 = QHBoxLayout()
+h_line2 = QHBoxLayout()
+
 
 line.addWidget(question)
-line.addWidget(button1)
-line.addWidget(button2)
-line.addWidget(button3)
-line.addWidget(button4)
+line.addLayout(h_line1)
+line.addLayout(h_line2)
+h_line1.addWidget(button1)
+h_line1.addWidget(button2)
+h_line2.addWidget(button3)
+h_line2.addWidget(button4)
 
 window.setLayout(line)
 
