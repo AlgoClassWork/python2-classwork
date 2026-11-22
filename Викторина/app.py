@@ -1,5 +1,6 @@
 import os
 import PyQt5
+
 # Чтобы работал PyQt5
 pyqt_path = os.path.dirname(PyQt5.__file__)
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = os.path.join(pyqt_path, "Qt5", "plugins", "platforms")
@@ -8,17 +9,37 @@ os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = os.path.join(pyqt_path, "Qt5", "plug
 
 # КОД ПРИЛОЖЕНИЯ
 from PyQt5.QtWidgets import (
-    QApplication, QWidget, QLabel, QVBoxLayout
+    QApplication, QWidget, QLabel, QVBoxLayout, QPushButton
 )
 
+# Создание обьектов интерфейса
 app = QApplication([])
 window = QWidget()
-question = QLabel('Какого цвета чернокожие?')
-question.setStyleSheet('font-size:50px ; color:red')
-line = QVBoxLayout()
-line.addWidget(question)
 
+question = QLabel('Какого цвета чернокожие?')
+button1 = QPushButton('Красные')
+button2 = QPushButton('Белые')
+button3 = QPushButton('Черные')
+button4 = QPushButton('Синие')
+
+# Стилизация обьектов интерфейса
+question.setStyleSheet('font-size:40px')
+button1.setStyleSheet('font-size:30px ; color:red')
+button2.setStyleSheet('font-size:30px ; color:white')
+button3.setStyleSheet('font-size:30px ; color:black')
+button4.setStyleSheet('font-size:30px ; color:blue')
+
+# Размещение обьектов интерфейса
+line = QVBoxLayout()
+
+line.addWidget(question)
+line.addWidget(button1)
+line.addWidget(button2)
+line.addWidget(button3)
+line.addWidget(button4)
 
 window.setLayout(line)
+
+# Запуск приложения
 window.show()
 app.exec()
